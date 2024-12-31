@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="SouthAmericanBank" />
+        <module name="Microservice-Client" />
+        <module name="Microservice-Eureka" />
+        <module name="Microservice-CuentaAhorro" />
+        <module name="Microservice-Tarjeta" />
+        <module name="Microservice-Config" />
+        <module name="Microservice-Gateway" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Microservice-Client" options="-parameters" />
+      <module name="Microservice-Config" options="-parameters" />
+      <module name="Microservice-CuentaAhorro" options="-parameters" />
+      <module name="Microservice-Eureka" options="-parameters" />
+      <module name="Microservice-Gateway" options="-parameters" />
+      <module name="Microservice-Tarjeta" options="-parameters" />
+      <module name="SouthAmericanBank" options="-parameters" />
+    </option>
+  </component>
+</project>
