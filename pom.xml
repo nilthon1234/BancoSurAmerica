@@ -24,6 +24,7 @@
     <module>Microservice-CuentaAhorro</module>
     <module>Microservice-Tarjeta</module>
     <module>SouthAmericanBank</module>
+    <module>Operations-Transfer</module>
   </modules>
 
   <properties>

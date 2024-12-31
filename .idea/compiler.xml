@@ -9,6 +9,7 @@
         <module name="SouthAmericanBank" />
         <module name="Microservice-Client" />
         <module name="Microservice-Eureka" />
+        <module name="Operations-Transfer" />
         <module name="Microservice-CuentaAhorro" />
         <module name="Microservice-Tarjeta" />
         <module name="Microservice-Config" />
@@ -24,6 +25,7 @@
       <module name="Microservice-Eureka" options="-parameters" />
       <module name="Microservice-Gateway" options="-parameters" />
       <module name="Microservice-Tarjeta" options="-parameters" />
+      <module name="Operations-Transfer" options="-parameters" />
       <module name="SouthAmericanBank" options="-parameters" />
     </option>
   </component>
