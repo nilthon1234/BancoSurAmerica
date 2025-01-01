@@ -1,1 +1,15 @@
-spring.application.name=Microservice-Config
+server:
+  port: 8888
+
+spring:
+  application:
+    name: Microservice-Config
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configurations
+
+

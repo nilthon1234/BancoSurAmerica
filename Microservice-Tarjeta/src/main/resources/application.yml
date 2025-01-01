@@ -1,1 +1,5 @@
-spring.application.name=Microservice-Tarjeta
+spring:
+  application:
+    name: Microservice-Tarjeta
+  config:
+    import: optional:configserver:http://localhost:8888

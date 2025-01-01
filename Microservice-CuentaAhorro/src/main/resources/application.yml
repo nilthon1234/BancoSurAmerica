@@ -1,1 +1,8 @@
-spring.application.name=Microservice-CuentaAhorro
+spring:
+  application:
+    name: Microservice-CuentaAhorro
+
+  config:
+    import: optional:configserver:http://localhost:8888
+
+

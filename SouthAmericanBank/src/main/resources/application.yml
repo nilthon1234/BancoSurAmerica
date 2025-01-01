@@ -1,1 +1,6 @@
-spring.application.name=SouthAmericanBank
+spring:
+  application:
+    name: SouthAmericanBank
+  config:
+    import: optional:configserver:http://localhost:8888
+

@@ -1,0 +1,22 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: Operations-Transfer
+
+  r2dbc:
+    url: r2dbc:sqlserver://127.0.0.1:1433/db_bancksouth
+    username: sa
+    password: mysql
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

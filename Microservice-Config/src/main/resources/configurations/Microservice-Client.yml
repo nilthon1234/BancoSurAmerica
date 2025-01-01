@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: Microservice-Client
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/db_bancksouth
+      database: db_bancksouth
+      auto-index-creation: true
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
