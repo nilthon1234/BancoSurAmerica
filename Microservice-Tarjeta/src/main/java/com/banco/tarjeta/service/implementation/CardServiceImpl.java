@@ -5,7 +5,6 @@ import com.banco.tarjeta.presentation.dto.CardDto;
 import com.banco.tarjeta.service.interfaces.IServiceCard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.sql.Date;
 import java.util.Map;
 
@@ -14,7 +13,6 @@ public class CardServiceImpl implements IServiceCard {
 
     @Autowired
     private ICardRepository cardRepository;
-
 
     @Override
     public CardDto registerCard(int dni) {

@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -26,6 +28,9 @@ public class ClientDto {
     @NotNull
     @Pattern(regexp = "\\d{9,}", message = "el telefono debe tener almenos 9 digitos")
     private String phone;
+
+    private CardDto card;
+    private SavingsAccountDto account;
 
     public ClientDto(Client client) {
         this.name = client.getName();

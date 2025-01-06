@@ -5,4 +5,5 @@ import reactor.core.publisher.Mono;
 
 public interface IClientService {
     Mono<ClientDto> registerClient(ClientDto clientDto);
+
 }
