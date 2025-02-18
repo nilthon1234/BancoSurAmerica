@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class AccountServiceImpl implements IAccountService {
@@ -27,5 +28,29 @@ public class AccountServiceImpl implements IAccountService {
                 .balance((BigDecimal) result.get("balance"))
                 .idCard(idCard)
                 .build();
+    }
+    @Transactional
+    @Override
+    public boolean updateBalance(String senderAccount,String destinationAccount, BigDecimal amount)  {
+
+        Optional<SavingsAccount> senderOptional = savingsAccountRepository.findByAccount(senderAccount);
+        Optional<SavingsAccount> destinationOptional = savingsAccountRepository.findByAccount(destinationAccount);
+        if (senderOptional.isPresent() || destinationOptional.isPresent()) {
+            return false;
+        }
+        SavingsAccount sender = senderOptional.get();
+        if (sender.getBalance().compareTo(amount) < 0) {
+            return false;
+        }
+        int rowsUpdatedSender = savingsAccountRepository.decrementBalance(senderAccount, amount);
+        if (rowsUpdatedSender == 0) {
+            return false;
+        }
+        int roumsUpdate = savingsAccountRepository.incrementBalance(destinationAccount, amount);
+        if (roumsUpdate == 0) {
+            throw new RuntimeException("falled to update destination balance. Rolling back transactional");
+        }
+        return true;
+
     }
 }

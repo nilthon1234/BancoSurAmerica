@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: Microservice-Gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+
+      routes:
+        - id: client
+          uri: http://localhost:8081
+          predicates:
+            - Path=/client/**
+
+        - id: cuenta-Ahorro
+          uri: http://localhost:8082
+          predicates:
+            - Path=/account/**
+
+        - id: tarjeta
+          uri: http://localhost:8083
+          predicates:
+            - Path=/card/**
+
+        - id: operation-Transfert
+          uri: http://localhost:8084
+          predicates:
+            - Path=/operation/**
+
+        - id: southAmericanBank
+          uri: http://localhost:8085
+          predicates:
+            - Path=/american/**
+
+eureka:
+  client:
+    register-with-eureka: false

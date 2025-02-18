@@ -24,12 +24,6 @@ public class ClienteProcessorService {
                         .map(account -> builClientDetails(existingClient, card,account)));
     }
 
-    public Mono<ClientDto> saveAndRegisterDetails(Client client){
-        return cardService.registerCard(client.getDni())
-                .flatMap(card -> savingAccountService.registerAccount(card.getId())
-                .map(account -> builClientDetails(client, card,account)));
-    }
-
     private ClientDto builClientDetails(Client existingClient, CardDto card, SavingsAccountDto account) {
 
         return ClientDto.builder()

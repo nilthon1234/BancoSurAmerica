@@ -1,10 +1,7 @@
 package com.banco.client.service.implementation;
 
-import com.banco.client.persistence.models.Client;
 import com.banco.client.persistence.repository.IClientRepository;
-import com.banco.client.presentation.dto.CardDto;
 import com.banco.client.presentation.dto.ClientDto;
-import com.banco.client.presentation.dto.SavingsAccountDto;
 import com.banco.client.service.helper.ClienteProcessorService;
 import com.banco.client.service.interfaces.IClientService;
 import com.banco.client.utils.mapper.ClientMapper;
@@ -20,8 +17,6 @@ public class ClientServiceImplement implements IClientService {
     @Autowired
     private ClienteProcessorService clienteProcessorService;
 
-
-
     @Override
     public Mono<ClientDto> registerClient(ClientDto clientDto) {
         return repository.findByDni(clientDto.getDni())
@@ -31,7 +26,7 @@ public class ClientServiceImplement implements IClientService {
                                 .flatMap(clienteProcessorService::processExistingClient)
                                 .switchIfEmpty(
                                         repository.save(ClientMapper.toEntity(clientDto))
-                                                .flatMap(clienteProcessorService::saveAndRegisterDetails)
+                                                .flatMap(clienteProcessorService::processExistingClient)
                                 )
                 );
     }
