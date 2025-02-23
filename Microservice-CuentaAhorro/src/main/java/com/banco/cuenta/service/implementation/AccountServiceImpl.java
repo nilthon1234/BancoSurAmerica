@@ -35,10 +35,11 @@ public class AccountServiceImpl implements IAccountService {
 
         Optional<SavingsAccount> senderOptional = savingsAccountRepository.findByAccount(senderAccount);
         Optional<SavingsAccount> destinationOptional = savingsAccountRepository.findByAccount(destinationAccount);
-        if (senderOptional.isPresent() || destinationOptional.isPresent()) {
+        if (!senderOptional.isPresent() || !destinationOptional.isPresent()) {
             return false;
         }
         SavingsAccount sender = senderOptional.get();
+        SavingsAccount destination = destinationOptional.get();
         if (sender.getBalance().compareTo(amount) < 0) {
             return false;
         }

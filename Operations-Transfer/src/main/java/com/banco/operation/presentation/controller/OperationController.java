@@ -20,10 +20,10 @@ public class OperationController {
 
 
     @PostMapping("/transfert")
-    public Mono<OperationTransfer> createOperation(@RequestParam String sender,
-                                                   @RequestParam String destination,
+    public Mono<OperationTransfer> createOperation(@RequestParam String senderAccount,
+                                                   @RequestParam String destinationAccount,
                                                    @RequestParam BigDecimal amount) {
-        return operationService.createOperaion(sender, destination, amount);
+        return operationService.createOperaion(senderAccount, destinationAccount, amount);
     }
 
 
